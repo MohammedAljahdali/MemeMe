@@ -50,7 +50,11 @@
                                             <action selector="chosePicLibaray:" destination="BYZ-38-t0r" id="3lS-gq-rce"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem systemItem="camera" id="Ium-g3-ORa"/>
+                                    <barButtonItem systemItem="camera" id="Ium-g3-ORa">
+                                        <connections>
+                                            <action selector="chosePicCamera:" destination="BYZ-38-t0r" id="s5y-xc-pAK"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aLm-n1-feM" userLabel="Filler Bot">
@@ -73,7 +77,11 @@
                                     <constraint firstAttribute="height" constant="40" id="sdt-lc-X4I"/>
                                 </constraints>
                                 <items>
-                                    <barButtonItem systemItem="action" id="mTQ-fd-EJ1"/>
+                                    <barButtonItem systemItem="action" id="mTQ-fd-EJ1">
+                                        <connections>
+                                            <action selector="shareMeme:" destination="BYZ-38-t0r" id="7Sw-zb-edS"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                         </subviews>
@@ -107,10 +115,14 @@
                     <connections>
                         <outlet property="addPicLibaray" destination="JjJ-ts-CMv" id="84D-ra-cNZ"/>
                         <outlet property="bottomTextField" destination="c27-dl-RhG" id="QYa-fU-Ycw"/>
+                        <outlet property="bottomToolbar" destination="Vnb-lt-lvP" id="MRm-nq-Aos"/>
                         <outlet property="cameraPic" destination="Ium-g3-ORa" id="uKH-B4-5ew"/>
+                        <outlet property="fillerBottomToolbar" destination="aLm-n1-feM" id="BhP-xM-5SY"/>
+                        <outlet property="fillerTopToolbar" destination="ruB-9W-TO4" id="t62-qJ-Akn"/>
                         <outlet property="memeImageView" destination="yx6-dO-J8p" id="TSl-pY-O7w"/>
                         <outlet property="shareMeme" destination="mTQ-fd-EJ1" id="pyy-Cb-7hE"/>
                         <outlet property="topTextField" destination="PSA-ML-6ak" id="zmj-e7-PyB"/>
+                        <outlet property="topToolbar" destination="ruB-9W-TO4" id="PZY-bw-uQw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
