@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController,  UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
+class MemeViewController: UIViewController,  UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
     
     // MARK: Variables
     struct Meme {
@@ -22,7 +22,7 @@ class ViewController: UIViewController,  UIImagePickerControllerDelegate, UINavi
         NSAttributedString.Key.strokeColor: UIColor.black,
         NSAttributedString.Key.foregroundColor: UIColor.white,
         NSAttributedString.Key.font: UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
-        NSAttributedString.Key.strokeWidth:  6.0
+        NSAttributedString.Key.strokeWidth:  -1.0
     ]
     
     // MARK: IBOutlets
@@ -32,22 +32,24 @@ class ViewController: UIViewController,  UIImagePickerControllerDelegate, UINavi
     @IBOutlet weak var addPicLibaray: UIBarButtonItem!
     @IBOutlet weak var cameraPic: UIBarButtonItem!
     @IBOutlet weak var shareMeme: UIBarButtonItem!
-    @IBOutlet weak var fillerTopToolbar: UIToolbar!
     @IBOutlet weak var topToolbar: UIToolbar!
     @IBOutlet weak var bottomToolbar: UIToolbar!
-    @IBOutlet weak var fillerBottomToolbar: UIToolbar!
+
     
     // MARK: IBActions
-    @IBAction func pictureLibrary(_ sender: Any) {
-        pickAnImage(.photoLibrary)
-    }
-    @IBAction func camera(_ sender: Any) {
-        pickAnImage(.camera)
-    }
-    func pickAnImage(_ source: UIImagePickerController.SourceType) {
+    @IBAction func pickImage(_ sender: UIBarButtonItem) {
+        var source: UIImagePickerController.SourceType!
+        switch sender.tag {
+        case 0:
+            source = .camera
+        case 1:
+            source = .photoLibrary
+        default:
+            source = nil
+        }
         let pickerController = UIImagePickerController()
         pickerController.delegate = self
-        pickerController.sourceType = source
+        pickerController.sourceType = source!
         present(pickerController, animated: true, completion: nil)
     }
     @IBAction func shareMeme(_ sender: Any) {
@@ -55,7 +57,7 @@ class ViewController: UIViewController,  UIImagePickerControllerDelegate, UINavi
         let controller = UIActivityViewController(activityItems: [meme], applicationActivities: nil)
         present(controller, animated: true, completion: nil)
         controller.completionWithItemsHandler = { (activityType: UIActivity.ActivityType?, completed: Bool, returnedItems: [Any]?, error: Error?) -> Void in
-            if completed == true {
+            if completed {
                 self.saveMeme()
             }
         }
@@ -68,7 +70,7 @@ class ViewController: UIViewController,  UIImagePickerControllerDelegate, UINavi
             text.delegate = self
             text.defaultTextAttributes = memeTextAttributes
             text.textAlignment = .center
-            text.addTarget(self, action: #selector(ViewController.captalizer(textfield:)), for: UIControl.Event.editingChanged)
+            text.addTarget(self, action: #selector(MemeViewController.captalizer(textfield:)), for: UIControl.Event.editingChanged)
         }
         topTextField.text = "TOP"
         bottomTextField.text = "BOTTOM"
@@ -144,8 +146,7 @@ class ViewController: UIViewController,  UIImagePickerControllerDelegate, UINavi
     func hideToolbars(_ value: Bool) {
         topToolbar.isHidden = value
         bottomToolbar.isHidden = value
-        fillerTopToolbar.isHidden = value
-        fillerBottomToolbar.isHidden = value
+
     }
     
     func takeMeme () -> UIImage {
