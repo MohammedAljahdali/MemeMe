@@ -21,7 +21,7 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yx6-dO-J8p">
                                 <rect key="frame" x="0.0" y="80" width="414" height="756"/>
                             </imageView>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PSA-ML-6ak" userLabel="Top Text Field">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PSA-ML-6ak" userLabel="Top Text Field">
                                 <rect key="frame" x="40" y="125" width="334" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="sel-ba-ZfX"/>
@@ -30,7 +30,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="c27-dl-RhG" userLabel="Bottom Text Field">
+                            <textField opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="c27-dl-RhG" userLabel="Bottom Text Field">
                                 <rect key="frame" x="40" y="751" width="334" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="yKl-A4-JiP"/>
@@ -47,12 +47,12 @@
                                 <items>
                                     <barButtonItem systemItem="add" id="JjJ-ts-CMv">
                                         <connections>
-                                            <action selector="chosePicLibaray:" destination="BYZ-38-t0r" id="3lS-gq-rce"/>
+                                            <action selector="pictureLibrary:" destination="BYZ-38-t0r" id="luQ-db-yrH"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem systemItem="camera" id="Ium-g3-ORa">
                                         <connections>
-                                            <action selector="chosePicCamera:" destination="BYZ-38-t0r" id="s5y-xc-pAK"/>
+                                            <action selector="camera:" destination="BYZ-38-t0r" id="lI0-hn-QlV"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
@@ -95,11 +95,12 @@
                             <constraint firstItem="ruB-9W-TO4" firstAttribute="top" secondItem="Aib-xE-yuF" secondAttribute="bottom" id="BNV-Z8-gJ9"/>
                             <constraint firstAttribute="trailing" secondItem="Aib-xE-yuF" secondAttribute="trailing" id="BPE-kt-Uf7"/>
                             <constraint firstAttribute="trailing" secondItem="aLm-n1-feM" secondAttribute="trailing" id="BwS-9J-3ea"/>
+                            <constraint firstItem="c27-dl-RhG" firstAttribute="top" relation="greaterThanOrEqual" secondItem="PSA-ML-6ak" secondAttribute="bottom" constant="100" id="CdX-me-bs9"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="PSA-ML-6ak" secondAttribute="trailing" constant="40" id="DR5-UL-3bb"/>
                             <constraint firstAttribute="trailing" secondItem="ruB-9W-TO4" secondAttribute="trailing" id="Dc5-Ta-n4c"/>
                             <constraint firstItem="c27-dl-RhG" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="GO2-mU-kOH"/>
                             <constraint firstItem="aLm-n1-feM" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="R92-r9-2Wx"/>
-                            <constraint firstItem="yx6-dO-J8p" firstAttribute="top" secondItem="PSA-ML-6ak" secondAttribute="bottom" constant="-85" id="Weq-KV-wgm"/>
+                            <constraint firstItem="yx6-dO-J8p" firstAttribute="top" secondItem="PSA-ML-6ak" secondAttribute="bottom" constant="-85" identifier="topTextCon" id="Weq-KV-wgm"/>
                             <constraint firstAttribute="trailing" secondItem="yx6-dO-J8p" secondAttribute="trailing" id="Ydc-Kc-QbB"/>
                             <constraint firstItem="Aib-xE-yuF" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="c3f-zr-axs"/>
                             <constraint firstItem="PSA-ML-6ak" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="dxb-n2-ZWk"/>
@@ -108,7 +109,7 @@
                             <constraint firstItem="aLm-n1-feM" firstAttribute="top" secondItem="Vnb-lt-lvP" secondAttribute="bottom" id="h3C-4h-lcD"/>
                             <constraint firstItem="ruB-9W-TO4" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="mkM-h9-MDX"/>
                             <constraint firstItem="Vnb-lt-lvP" firstAttribute="top" secondItem="yx6-dO-J8p" secondAttribute="bottom" id="oGm-zP-Rm3"/>
-                            <constraint firstItem="c27-dl-RhG" firstAttribute="top" secondItem="yx6-dO-J8p" secondAttribute="bottom" constant="-85" id="uZQ-Lq-sZ6"/>
+                            <constraint firstItem="c27-dl-RhG" firstAttribute="top" secondItem="yx6-dO-J8p" secondAttribute="bottom" constant="-85" identifier="bottomTextCon" id="uZQ-Lq-sZ6"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>

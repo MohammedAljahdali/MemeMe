@@ -44,6 +44,8 @@
 	<key>NSCameraUsageDescription</key>
 	<string>&quot;This app will use your camera to take pictures&quot;</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string>&quot;This app needs your premission to save MEMES&quot;</string>
+	<string>&quot;This app needs your permission to save MEMES&quot;</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>&quot;This app needs your permission to save MEMES&quot;</string>
 </dict>
 </plist>

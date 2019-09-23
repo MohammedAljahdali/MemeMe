@@ -22,7 +22,7 @@ class ViewController: UIViewController,  UIImagePickerControllerDelegate, UINavi
         NSAttributedString.Key.strokeColor: UIColor.black,
         NSAttributedString.Key.foregroundColor: UIColor.white,
         NSAttributedString.Key.font: UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
-        NSAttributedString.Key.strokeWidth:  4.0
+        NSAttributedString.Key.strokeWidth:  6.0
     ]
     
     // MARK: IBOutlets
@@ -38,17 +38,17 @@ class ViewController: UIViewController,  UIImagePickerControllerDelegate, UINavi
     @IBOutlet weak var fillerBottomToolbar: UIToolbar!
     
     // MARK: IBActions
-    @IBAction func chosePicLibaray(_ sender: Any) {
-        let controller = UIImagePickerController()
-        controller.sourceType = .photoLibrary
-        controller.delegate = self
-        present(controller, animated: true, completion: nil)
+    @IBAction func pictureLibrary(_ sender: Any) {
+        pickAnImage(.photoLibrary)
     }
-    @IBAction func chosePicCamera(_ sender: Any) {
-        let controller = UIImagePickerController()
-        controller.sourceType = .camera
-        controller.delegate = self
-        present(controller, animated: true, completion: nil)
+    @IBAction func camera(_ sender: Any) {
+        pickAnImage(.camera)
+    }
+    func pickAnImage(_ source: UIImagePickerController.SourceType) {
+        let pickerController = UIImagePickerController()
+        pickerController.delegate = self
+        pickerController.sourceType = source
+        present(pickerController, animated: true, completion: nil)
     }
     @IBAction func shareMeme(_ sender: Any) {
         let meme = takeMeme()
@@ -78,20 +78,20 @@ class ViewController: UIViewController,  UIImagePickerControllerDelegate, UINavi
     // MARK: viewWillAppear
     override func viewWillAppear(_ animated: Bool) {
         cameraPic.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
-        subscribeToKeyboardNotification()
+        subscribeToKeyboardNotification(type: "willShow")
     }
     // MARK: viewWillDisappear
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         unsubscribeTokeyboardNotification()
-        subscribeTokeyboardWillHideNotification()
+        subscribeToKeyboardNotification(type: "willHide")
     }
     
     // MARK: ImagePickerDelegate
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let pickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             memeImageView.image = pickedImage
-            memeImageView.contentMode = .scaleToFill
+            memeImageView.contentMode = .scaleAspectFit
             shareMeme.isEnabled = true
         }
         dismiss(animated: true, completion: nil)
@@ -124,8 +124,12 @@ class ViewController: UIViewController,  UIImagePickerControllerDelegate, UINavi
         }
         view.frame.origin.y = -getKeybordHeight(notification)
     }
-    func subscribeToKeyboardNotification() {
+    func subscribeToKeyboardNotification(type: String) {
+        if type == "willShow" {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        } else if type == "willHide" {
+            NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+        }
     }
     func unsubscribeTokeyboardNotification() {
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
@@ -134,9 +138,7 @@ class ViewController: UIViewController,  UIImagePickerControllerDelegate, UINavi
     @objc func keyboardWillHide(_ notification: Notification) {
         view.frame.origin.y = (0) as CGFloat
     }
-    func subscribeTokeyboardWillHideNotification() {
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
-    }
+    
     
     // MARK: handling memes
     func hideToolbars(_ value: Bool) {
