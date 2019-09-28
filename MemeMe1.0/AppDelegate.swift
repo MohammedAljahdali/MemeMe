@@ -12,7 +12,12 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var memes: [Meme] = [Meme]()
+    var memes: [Meme] = [
+        Meme(topText: "hello", bottomText: "world", image: UIImage(named: "MemeGenerator_120 copy")!, meme: UIImage(named: "MemeGenerator_120 copy")!),
+        Meme(topText: "hello", bottomText: "world", image: UIImage(named: "MemeGenerator_120 copy")!, meme: UIImage(named: "MemeGenerator_120 copy")!),
+        Meme(topText: "hello", bottomText: "world", image: UIImage(named: "MemeGenerator_120 copy")!, meme: UIImage(named: "MemeGenerator_120 copy")!)
+    ]
+    
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.

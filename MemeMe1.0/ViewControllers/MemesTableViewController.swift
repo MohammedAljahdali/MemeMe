@@ -19,17 +19,25 @@ class MemesTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.add, target: self, action: #selector(addMeme))
-//            UIBarButtonItem(
-//        title: "Start Over",
-//        style: .plain,
-//        target: self,
-//        action: #selector(addMeme))
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        memes = {
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            let meme = appDelegate.memes
+            return meme
+        }()
+        tableView.reloadData()
+        for x in memes {
+            print(x.bottomText)
+        }
+    }
+    
 
     // MARK: - Table view data source
 
@@ -45,7 +53,7 @@ class MemesTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         let meme = memes[indexPath.row]
         cell.imageView?.image = meme.image
         cell.textLabel?.text = meme.topText
