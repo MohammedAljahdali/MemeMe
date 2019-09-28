@@ -11,12 +11,6 @@ import UIKit
 class MemeViewController: UIViewController,  UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
     
     // MARK: Variables
-    struct Meme {
-        let topText: String
-        let bottomText: String
-        let image: UIImage
-        let meme: UIImage
-    }
     var textFieldList: [UITextField] = []
     let memeTextAttributes: [NSAttributedString.Key: Any] = [
         NSAttributedString.Key.strokeColor: UIColor.black,
@@ -163,7 +157,9 @@ class MemeViewController: UIViewController,  UIImagePickerControllerDelegate, UI
     }
     
     func saveMeme () {
-        _ = Meme(topText: textFieldList[0].text!, bottomText: textFieldList[1].text!, image: memeImageView.image!, meme: takeMeme())
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let meme = Meme(topText: textFieldList[0].text!, bottomText: textFieldList[1].text!, image: memeImageView.image!, meme: takeMeme())
+        appDelegate.memes.append(meme)
     }
     
     
