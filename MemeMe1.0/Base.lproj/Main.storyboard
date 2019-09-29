@@ -235,35 +235,45 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EBy-5T-CfN" userLabel="Meme Name">
-                                            <rect key="frame" x="148" y="30" width="156" height="30"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EdQ-xe-7cO" userLabel="Top Text Title">
+                                            <rect key="frame" x="143" y="8" width="177" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DlD-ON-Emi" userLabel="Bottom Text Title">
+                                            <rect key="frame" x="143" y="53" width="177" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="3UL-m4-ftW" firstAttribute="top" secondItem="HGq-sP-iQa" secondAttribute="bottom" constant="-29" id="1b8-bv-keV"/>
-                                        <constraint firstItem="EBy-5T-CfN" firstAttribute="top" secondItem="OOX-2H-eBx" secondAttribute="top" constant="30" id="2cx-8L-snD"/>
+                                        <constraint firstAttribute="trailing" secondItem="DlD-ON-Emi" secondAttribute="trailing" id="7cG-gN-dSC"/>
                                         <constraint firstItem="HGq-sP-iQa" firstAttribute="top" secondItem="oex-Ln-yGJ" secondAttribute="bottom" constant="-27" id="ATP-NM-cCp"/>
-                                        <constraint firstItem="EBy-5T-CfN" firstAttribute="leading" secondItem="HGq-sP-iQa" secondAttribute="trailing" constant="15" id="EIw-B9-b0h"/>
                                         <constraint firstItem="oex-Ln-yGJ" firstAttribute="leading" secondItem="HGq-sP-iQa" secondAttribute="leading" constant="15" id="I0n-ki-4iK"/>
-                                        <constraint firstAttribute="trailing" secondItem="EBy-5T-CfN" secondAttribute="trailing" constant="16" id="MJB-lZ-dkg"/>
+                                        <constraint firstItem="DlD-ON-Emi" firstAttribute="top" secondItem="EdQ-xe-7cO" secondAttribute="bottom" constant="24" id="Lmr-MN-fg7"/>
+                                        <constraint firstItem="EdQ-xe-7cO" firstAttribute="leading" secondItem="HGq-sP-iQa" secondAttribute="trailing" constant="10" id="NaG-Ol-lq2"/>
                                         <constraint firstItem="3UL-m4-ftW" firstAttribute="trailing" secondItem="HGq-sP-iQa" secondAttribute="trailing" constant="-15" id="OoD-ol-lNR"/>
+                                        <constraint firstItem="DlD-ON-Emi" firstAttribute="leading" secondItem="HGq-sP-iQa" secondAttribute="trailing" constant="10" id="Qgm-HS-E3U"/>
+                                        <constraint firstAttribute="trailing" secondItem="EdQ-xe-7cO" secondAttribute="trailing" id="TWe-LT-rjZ"/>
+                                        <constraint firstItem="EdQ-xe-7cO" firstAttribute="top" secondItem="OOX-2H-eBx" secondAttribute="top" constant="8" id="UaL-K8-oiR"/>
                                         <constraint firstItem="HGq-sP-iQa" firstAttribute="leading" secondItem="OOX-2H-eBx" secondAttribute="leading" id="VB1-83-fQw"/>
                                         <constraint firstItem="3UL-m4-ftW" firstAttribute="leading" secondItem="HGq-sP-iQa" secondAttribute="leading" constant="15" id="VmF-ql-vsd"/>
-                                        <constraint firstAttribute="bottom" secondItem="EBy-5T-CfN" secondAttribute="bottom" constant="20" id="fnb-2X-us6"/>
                                         <constraint firstItem="HGq-sP-iQa" firstAttribute="top" secondItem="OOX-2H-eBx" secondAttribute="top" constant="2" id="iOe-3s-omE"/>
                                         <constraint firstAttribute="trailing" secondItem="HGq-sP-iQa" secondAttribute="trailing" constant="187" id="jyz-Xz-DR9"/>
                                         <constraint firstItem="oex-Ln-yGJ" firstAttribute="trailing" secondItem="HGq-sP-iQa" secondAttribute="trailing" constant="-15" id="kgn-hi-oxl"/>
                                         <constraint firstAttribute="bottom" secondItem="HGq-sP-iQa" secondAttribute="bottom" constant="-2" id="pHJ-Z8-jPU"/>
+                                        <constraint firstAttribute="bottom" secondItem="DlD-ON-Emi" secondAttribute="bottom" constant="6" id="t0a-if-VA7"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="bottomText" destination="3UL-m4-ftW" id="Lc7-ms-Vct"/>
+                                    <outlet property="bottomText" destination="3UL-m4-ftW" id="EhA-r4-SHN"/>
+                                    <outlet property="bottomTextTitle" destination="DlD-ON-Emi" id="WOF-Wj-tc9"/>
                                     <outlet property="memeView" destination="HGq-sP-iQa" id="EsK-XY-yUC"/>
-                                    <outlet property="nameText" destination="EBy-5T-CfN" id="I0f-Q2-hyY"/>
-                                    <outlet property="topText" destination="oex-Ln-yGJ" id="gVS-yI-nRO"/>
+                                    <outlet property="topText" destination="oex-Ln-yGJ" id="hpD-Pj-Ycx"/>
+                                    <outlet property="topTextTitle" destination="EdQ-xe-7cO" id="XpM-cq-foB"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

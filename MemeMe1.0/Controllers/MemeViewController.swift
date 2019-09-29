@@ -12,12 +12,18 @@ class MemeViewController: UIViewController,  UIImagePickerControllerDelegate, UI
     
     // MARK: Variables
     var textFieldList: [UITextField] = []
-    let memeTextAttributes: [NSAttributedString.Key: Any] = [
-        NSAttributedString.Key.strokeColor: UIColor.black,
-        NSAttributedString.Key.foregroundColor: UIColor.white,
-        NSAttributedString.Key.font: UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
-        NSAttributedString.Key.strokeWidth:  -1.0
-    ]
+//    let memeTextAttributes: [NSAttributedString.Key: Any] = [
+//        NSAttributedString.Key.strokeColor: UIColor.black,
+//        NSAttributedString.Key.foregroundColor: UIColor.white,
+//        NSAttributedString.Key.font: UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
+//        NSAttributedString.Key.strokeWidth:  -1.0
+//    ]
+    var memeTextAttributes: [NSAttributedString.Key: Any] = {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let attribute = appDelegate.memeTextAttributes
+        return attribute
+    }()
+    
     
     // MARK: IBOutlets
     @IBOutlet weak var topTextField: UITextField!

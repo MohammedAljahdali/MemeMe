@@ -17,6 +17,12 @@ class MemesCollectionViewController: UICollectionViewController {
         let meme = appDelegate.memes
         return meme
     }()
+    var memeTextAttributes: [NSAttributedString.Key: Any] = {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        var attribute = appDelegate.memeTextAttributes
+        attribute[NSAttributedString.Key.font] = UIFont(name: "HelveticaNeue-CondensedBlack", size: 15)
+        return attribute
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()

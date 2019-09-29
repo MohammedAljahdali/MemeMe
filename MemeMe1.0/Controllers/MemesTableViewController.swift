@@ -15,6 +15,12 @@ class MemesTableViewController: UITableViewController {
         let meme = appDelegate.memes
         return meme
     }()
+    var memeTextAttributes: [NSAttributedString.Key: Any] = {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        var attribute = appDelegate.memeTextAttributes
+        attribute[NSAttributedString.Key.font] = UIFont(name: "HelveticaNeue-CondensedBlack", size: 15)
+        return attribute
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,8 +46,10 @@ class MemesTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! MemesTableViewCell
         let meme = memes[indexPath.row]
         cell.memeView.image = meme.image
-        cell.topText.text = meme.topText
-        cell.bottomText.text = meme.bottomText
+        cell.topText.attributedText = NSAttributedString(string: meme.topText, attributes: memeTextAttributes)
+        cell.bottomText.attributedText = NSAttributedString(string: meme.bottomText, attributes: memeTextAttributes)
+        cell.bottomTextTitle.text = meme.bottomText
+        cell.topTextTitle.text = meme.topText
         return cell
     }
     
