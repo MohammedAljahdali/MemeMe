@@ -24,29 +24,30 @@ class MemesCollectionViewController: UICollectionViewController {
         return attribute
     }()
     
+    @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.add, target: self, action: #selector(addMeme))
-        let flowLayout = UICollectionViewFlowLayout()
         let space: CGFloat = 1.5
         let width: CGFloat = (view.frame.size.width - space * 2) / 5
         let height: CGFloat = (view.frame.size.width - space * 2) / 4
         flowLayout.minimumInteritemSpacing = space
         flowLayout.minimumLineSpacing = space
         flowLayout.itemSize = CGSize(width: width, height: height)
-        
+        collectionView.reloadData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
            super.viewWillAppear(animated)
+        flowLayout.invalidateLayout()
            memes = {
                let appDelegate = UIApplication.shared.delegate as! AppDelegate
                let meme = appDelegate.memes
                return meme
            }()
-           // TODO: implment a method that give the memes var a updated list of all the memes from the delegate
         collectionView.reloadData()
-        
+           // TODO: implment a method that give the memes var a updated list of all the memes from the delegate
     }
     
     @objc func addMeme() {
@@ -80,9 +81,10 @@ class MemesCollectionViewController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! MemesCollectionViewCell
         let meme = memes[indexPath.row]
-        cell.memeView.image = meme.image
         cell.topText.text = meme.topText
         cell.bottomText.text = meme.bottomText
+        cell.memeView.image = meme.image
+        cell.memeView.contentMode = .scaleAspectFit
         return cell
     }
 

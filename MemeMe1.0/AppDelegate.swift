@@ -15,6 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var memes: [Meme] = [
         Meme(topText: "hello", bottomText: "world", image: UIImage(named: "MemeGenerator_120 copy")!, meme: UIImage(named: "MemeGenerator_120 copy")!),
         Meme(topText: "hello", bottomText: "world", image: UIImage(named: "MemeGenerator_120 copy")!, meme: UIImage(named: "MemeGenerator_120 copy")!),
+        Meme(topText: "hello", bottomText: "world", image: UIImage(named: "MemeGenerator_120 copy")!, meme: UIImage(named: "MemeGenerator_120 copy")!),
         Meme(topText: "hello", bottomText: "world", image: UIImage(named: "MemeGenerator_120 copy")!, meme: UIImage(named: "MemeGenerator_120 copy")!)
     ]
     
