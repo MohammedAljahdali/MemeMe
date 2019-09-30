@@ -55,24 +55,13 @@ class MemesCollectionViewController: UICollectionViewController {
         navigationController?.pushViewController(controller, animated: true)
     }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let theMeme = memes[indexPath.row]
+        let controller = storyboard?.instantiateViewController(withIdentifier: "PreviewMeme") as! PreviewMemeViewController
+        controller.theMeme = theMeme
+        navigationController?.pushViewController(controller, animated: true)
     }
-    */
-
-    // MARK: UICollectionViewDataSource
-
-//    override func numberOfSections(in collectionView: UICollectionView) -> Int {
-//        // #warning Incomplete implementation, return the number of sections
-//        return 0
-//    }
-
-
+    
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
         return memes.count
@@ -84,7 +73,6 @@ class MemesCollectionViewController: UICollectionViewController {
         cell.topText.text = meme.topText
         cell.bottomText.text = meme.bottomText
         cell.memeView.image = meme.image
-        cell.memeView.contentMode = .scaleAspectFit
         return cell
     }
 

@@ -57,6 +57,13 @@ class MemesTableViewController: UITableViewController {
         let controller = storyboard?.instantiateViewController(withIdentifier: "MemeVC") as! MemeViewController
         navigationController?.pushViewController(controller, animated: true)
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let theMeme = memes[indexPath.row]
+        let controller = storyboard?.instantiateViewController(withIdentifier: "PreviewMeme") as! PreviewMemeViewController
+        controller.theMeme = theMeme
+        navigationController?.pushViewController(controller, animated: true)
+    }
 
 
 }
