@@ -243,14 +243,14 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HGq-sP-iQa">
-                                            <rect key="frame" x="0.0" y="2" width="133" height="80"/>
+                                            <rect key="frame" x="2" y="2" width="131" height="80"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="133" id="19I-mn-DdG"/>
                                                 <constraint firstAttribute="height" constant="80" id="qYb-Gn-bms"/>
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oex-Ln-yGJ" userLabel="Top Text">
-                                            <rect key="frame" x="15" y="8" width="103" height="21"/>
+                                            <rect key="frame" x="17" y="8" width="101" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="Prg-YS-wPE"/>
                                             </constraints>
@@ -259,7 +259,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3UL-m4-ftW" userLabel="Bottom Text">
-                                            <rect key="frame" x="15" y="53" width="103" height="21"/>
+                                            <rect key="frame" x="17" y="53" width="101" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="pA7-oS-IQB"/>
                                             </constraints>
@@ -268,13 +268,13 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EdQ-xe-7cO" userLabel="Top Text Title">
-                                            <rect key="frame" x="143" y="8" width="177" height="21"/>
+                                            <rect key="frame" x="143" y="8" width="42" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DlD-ON-Emi" userLabel="Bottom Text Title">
-                                            <rect key="frame" x="143" y="53" width="177" height="21"/>
+                                            <rect key="frame" x="143" y="53" width="42" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -282,16 +282,14 @@
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="3UL-m4-ftW" firstAttribute="top" secondItem="HGq-sP-iQa" secondAttribute="bottom" constant="-29" id="1b8-bv-keV"/>
-                                        <constraint firstAttribute="trailing" secondItem="DlD-ON-Emi" secondAttribute="trailing" id="7cG-gN-dSC"/>
                                         <constraint firstItem="HGq-sP-iQa" firstAttribute="top" secondItem="oex-Ln-yGJ" secondAttribute="bottom" constant="-27" id="ATP-NM-cCp"/>
                                         <constraint firstItem="oex-Ln-yGJ" firstAttribute="leading" secondItem="HGq-sP-iQa" secondAttribute="leading" constant="15" id="I0n-ki-4iK"/>
                                         <constraint firstItem="DlD-ON-Emi" firstAttribute="top" secondItem="EdQ-xe-7cO" secondAttribute="bottom" constant="24" id="Lmr-MN-fg7"/>
                                         <constraint firstItem="EdQ-xe-7cO" firstAttribute="leading" secondItem="HGq-sP-iQa" secondAttribute="trailing" constant="10" id="NaG-Ol-lq2"/>
                                         <constraint firstItem="3UL-m4-ftW" firstAttribute="trailing" secondItem="HGq-sP-iQa" secondAttribute="trailing" constant="-15" id="OoD-ol-lNR"/>
                                         <constraint firstItem="DlD-ON-Emi" firstAttribute="leading" secondItem="HGq-sP-iQa" secondAttribute="trailing" constant="10" id="Qgm-HS-E3U"/>
-                                        <constraint firstAttribute="trailing" secondItem="EdQ-xe-7cO" secondAttribute="trailing" id="TWe-LT-rjZ"/>
                                         <constraint firstItem="EdQ-xe-7cO" firstAttribute="top" secondItem="OOX-2H-eBx" secondAttribute="top" constant="8" id="UaL-K8-oiR"/>
-                                        <constraint firstItem="HGq-sP-iQa" firstAttribute="leading" secondItem="OOX-2H-eBx" secondAttribute="leading" id="VB1-83-fQw"/>
+                                        <constraint firstItem="HGq-sP-iQa" firstAttribute="leading" secondItem="OOX-2H-eBx" secondAttribute="leading" constant="2" id="VB1-83-fQw"/>
                                         <constraint firstItem="3UL-m4-ftW" firstAttribute="leading" secondItem="HGq-sP-iQa" secondAttribute="leading" constant="15" id="VmF-ql-vsd"/>
                                         <constraint firstItem="HGq-sP-iQa" firstAttribute="top" secondItem="OOX-2H-eBx" secondAttribute="top" constant="2" id="iOe-3s-omE"/>
                                         <constraint firstAttribute="trailing" secondItem="HGq-sP-iQa" secondAttribute="trailing" constant="187" id="jyz-Xz-DR9"/>

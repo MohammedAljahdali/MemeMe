@@ -42,6 +42,9 @@ class MemesTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! MemesTableViewCell
         let meme = memes[indexPath.row]
         cell.memeView.image = meme.image
+        cell.memeView.widthAnchor.constraint(equalToConstant: (view.frame.size.width * 0.65)).isActive = true
+        cell.memeView.heightAnchor.constraint(equalToConstant: (cell.frame.height)).isActive = true
+        cell.memeView.contentMode = .scaleAspectFit
         cell.topText.attributedText = NSAttributedString(string: meme.topText, attributes: memeTextAttributes)
         cell.bottomText.attributedText = NSAttributedString(string: meme.bottomText, attributes: memeTextAttributes)
         cell.bottomTextTitle.text = meme.bottomText
