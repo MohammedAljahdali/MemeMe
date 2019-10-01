@@ -25,11 +25,11 @@ class MemesTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.add, target: self, action: #selector(addMeme))
+        navigationItem.title = "Sent Memes Table"
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         memes = updateMemes()
-        // TODO: implment a method that give the memes var a updated list of all the memes from the delegate
         tableView.reloadData()
     }
     

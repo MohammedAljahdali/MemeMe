@@ -29,6 +29,7 @@ class MemesCollectionViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.add, target: self, action: #selector(addMeme))
+        navigationItem.title = "Sent Memes Collection"
         let space: CGFloat = 1.5
         let width: CGFloat = (view.frame.size.width - space * 2) / 5
         let height: CGFloat = (view.frame.size.width - space * 2) / 3
@@ -39,15 +40,10 @@ class MemesCollectionViewController: UICollectionViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-           super.viewWillAppear(animated)
-           memes = {
-               let appDelegate = UIApplication.shared.delegate as! AppDelegate
-               let meme = appDelegate.memes
-               return meme
-           }()
-        flowLayout.invalidateLayout()
-        collectionView.reloadData()
-           // TODO: implment a method that give the memes var a updated list of all the memes from the delegate
+            super.viewWillAppear(animated)
+            memes = updateMemes()
+            flowLayout.invalidateLayout()
+            collectionView.reloadData()
     }
     
     @objc func addMeme() {
@@ -77,6 +73,12 @@ class MemesCollectionViewController: UICollectionViewController {
         cell.memeView.heightAnchor.constraint(equalToConstant: (view.frame.size.width - 2 * 2) / 3).isActive = true
         cell.memeView.contentMode = .scaleAspectFit
         return cell
+    }
+    
+    func updateMemes() -> [Meme] {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let meme = appDelegate.memes
+        return meme
     }
 
 }

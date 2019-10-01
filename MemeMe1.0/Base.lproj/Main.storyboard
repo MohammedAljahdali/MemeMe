@@ -9,11 +9,11 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Item-->
+        <!--Navigation Controller-->
         <scene sceneID="pNi-bY-0qq">
             <objects>
                 <navigationController id="LNY-cW-lX7" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="FOh-4V-pyq"/>
+                    <tabBarItem key="tabBarItem" title="" image="list.dash" catalog="system" selectedImage="list.dash" id="FOh-4V-pyq"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Skn-k5-6Ai">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -338,11 +338,11 @@
             </objects>
             <point key="canvasLocation" x="-2402" y="93"/>
         </scene>
-        <!--Item-->
+        <!--Navigation Controller-->
         <scene sceneID="QAd-pP-mMq">
             <objects>
                 <navigationController id="XX6-Pm-nGJ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="jmr-4c-IHy"/>
+                    <tabBarItem key="tabBarItem" title="" image="table.fill" catalog="system" selectedImage="table.fill" id="jmr-4c-IHy"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="qIH-yp-xD6">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -356,4 +356,8 @@
             <point key="canvasLocation" x="-1635" y="360"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="list.dash" catalog="system" width="64" height="44"/>
+        <image name="table.fill" catalog="system" width="64" height="48"/>
+    </resources>
 </document>

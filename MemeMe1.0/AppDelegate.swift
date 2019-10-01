@@ -12,12 +12,7 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var memes: [Meme] = [
-        Meme(topText: "hello", bottomText: "world", image: UIImage(named: "MemeGenerator_120 copy")!, meme: UIImage(named: "MemeGenerator_120 copy")!),
-        Meme(topText: "hello", bottomText: "world", image: UIImage(named: "MemeGenerator_120 copy")!, meme: UIImage(named: "MemeGenerator_120 copy")!),
-        Meme(topText: "hello", bottomText: "world", image: UIImage(named: "MemeGenerator_120 copy")!, meme: UIImage(named: "MemeGenerator_120 copy")!),
-        Meme(topText: "hello", bottomText: "world", image: UIImage(named: "MemeGenerator_120 copy")!, meme: UIImage(named: "MemeGenerator_120 copy")!)
-    ]
+    var memes: [Meme] = [Meme]()
     
     let memeTextAttributes: [NSAttributedString.Key: Any] = [
         NSAttributedString.Key.strokeColor: UIColor.black,
