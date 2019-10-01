@@ -70,8 +70,9 @@ class MemesCollectionViewController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! MemesCollectionViewCell
         let meme = memes[indexPath.row]
-        
-        cell.memeView.image = meme.meme
+        cell.topText.attributedText = NSAttributedString(string: meme.topText, attributes: memeTextAttributes)
+        cell.bottomText.attributedText = NSAttributedString(string: meme.bottomText, attributes: memeTextAttributes)
+        cell.memeView.image = meme.image
         cell.memeView.widthAnchor.constraint(equalToConstant: (view.frame.size.width - 2 * 2) / 5).isActive = true
         cell.memeView.heightAnchor.constraint(equalToConstant: (view.frame.size.width - 2 * 2) / 3).isActive = true
         cell.memeView.contentMode = .scaleAspectFit
