@@ -28,11 +28,7 @@ class MemesTableViewController: UITableViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        memes = {
-            let appDelegate = UIApplication.shared.delegate as! AppDelegate
-            let meme = appDelegate.memes
-            return meme
-        }()
+        memes = updateMemes()
         // TODO: implment a method that give the memes var a updated list of all the memes from the delegate
         tableView.reloadData()
     }
@@ -63,6 +59,12 @@ class MemesTableViewController: UITableViewController {
         let controller = storyboard?.instantiateViewController(withIdentifier: "PreviewMeme") as! PreviewMemeViewController
         controller.theMeme = theMeme
         navigationController?.pushViewController(controller, animated: true)
+    }
+    
+    func updateMemes() -> [Meme] {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let meme = appDelegate.memes
+        return meme
     }
 
 
