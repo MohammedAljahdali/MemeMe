@@ -30,7 +30,7 @@ class MemesCollectionViewController: UICollectionViewController {
         super.viewDidLoad()
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.add, target: self, action: #selector(addMeme))
         let space: CGFloat = 1.5
-        let width: CGFloat = (view.frame.size.width - space * 2) / 3
+        let width: CGFloat = (view.frame.size.width - space * 2) / 5
         let height: CGFloat = (view.frame.size.width - space * 2) / 3
         flowLayout.minimumInteritemSpacing = space
         flowLayout.minimumLineSpacing = space
@@ -70,7 +70,10 @@ class MemesCollectionViewController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! MemesCollectionViewCell
         let meme = memes[indexPath.row]
+        
         cell.memeView.image = meme.meme
+        cell.memeView.widthAnchor.constraint(equalToConstant: (view.frame.size.width - 2 * 2) / 5).isActive = true
+        cell.memeView.heightAnchor.constraint(equalToConstant: (view.frame.size.width - 2 * 2) / 3).isActive = true
         cell.memeView.contentMode = .scaleAspectFit
         return cell
     }
